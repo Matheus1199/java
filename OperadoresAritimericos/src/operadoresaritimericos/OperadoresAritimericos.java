@@ -30,9 +30,13 @@ public class OperadoresAritimericos {
         x += 2; // x = x + 2
         System.out.println(x);*/
         
-        float v = 8.3f;
-        int ar = (int) Math.floor(v);
-        System.out.println(ar);
+        /*float v = 8.5f;
+        int ar = (int) Math.round(v);
+        System.out.println(ar);*/
+        
+        /*double ale = Math.random();
+        int n = (int) (15 + ale * (50-15));
+        System.out.println(n);*/
     }
     
 }
