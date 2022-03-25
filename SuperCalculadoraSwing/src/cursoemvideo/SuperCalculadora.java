@@ -37,13 +37,14 @@ public class SuperCalculadora extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         lblCubo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        lblRQ = new javax.swing.JLabel();
+        lblRaizQ = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        lblRC = new javax.swing.JLabel();
+        lblRaizC = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lblAbs = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Super Calculadora");
@@ -75,15 +76,15 @@ public class SuperCalculadora extends javax.swing.JFrame {
 
         jLabel5.setText("Raiz Quadrada");
 
-        lblRQ.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblRQ.setForeground(new java.awt.Color(51, 51, 255));
-        lblRQ.setText("0");
+        lblRaizQ.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblRaizQ.setForeground(new java.awt.Color(51, 51, 255));
+        lblRaizQ.setText("0");
 
         jLabel6.setText("Raiz Cúbica");
 
-        lblRC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblRC.setForeground(new java.awt.Color(51, 51, 255));
-        lblRC.setText("0");
+        lblRaizC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblRaizC.setForeground(new java.awt.Color(51, 51, 255));
+        lblRaizC.setText("0");
 
         jLabel7.setText("Valor Absoluto");
 
@@ -105,12 +106,14 @@ public class SuperCalculadora extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34)
                 .addGroup(panCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblRC, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRQ, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCubo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblResto, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAbs, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                    .addGroup(panCalcLayout.createSequentialGroup()
+                        .addGroup(panCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCubo, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                            .addComponent(lblRaizQ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblRaizC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAbs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addComponent(lblResto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         panCalcLayout.setVerticalGroup(
             panCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,11 +129,11 @@ public class SuperCalculadora extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(lblRQ))
+                    .addComponent(lblRaizQ))
                 .addGap(18, 18, 18)
                 .addGroup(panCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(lblRC))
+                    .addComponent(lblRaizC))
                 .addGap(18, 18, 18)
                 .addGroup(panCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -187,6 +190,19 @@ public class SuperCalculadora extends javax.swing.JFrame {
         
         // Elevado ao cubo
         double c = Math.pow(num, 3);
+        lblCubo.setText(Double.toString(c));
+        
+        // Raiz quadrada
+        double rq = Math.sqrt(num);
+        lblRaizQ.setText(String.format("%.2f", rq));
+        
+        // Raiz Cúbica
+        double rc = Math.cbrt(num);
+        lblRaizC.setText(String.format("%.2f", rc));
+        
+        // Valor absoluto
+        int abs = Math.abs(num);
+        lblAbs.setText(Integer.toString(abs));
         
         panCalc.setVisible(true);
     }//GEN-LAST:event_btnCalcActionPerformed
@@ -237,8 +253,8 @@ public class SuperCalculadora extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel lblAbs;
     private javax.swing.JLabel lblCubo;
-    private javax.swing.JLabel lblRC;
-    private javax.swing.JLabel lblRQ;
+    private javax.swing.JLabel lblRaizC;
+    private javax.swing.JLabel lblRaizQ;
     private javax.swing.JLabel lblResto;
     private javax.swing.JPanel panCalc;
     private javax.swing.JSpinner txtNum;
