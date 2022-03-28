@@ -39,8 +39,10 @@ public class ProgramaPernas {
                 tipo = "Aranha";
                 break;
             default:
-                tipo =
+                tipo = "ET";
+                break;
         }
+        System.out.println(tipo);
     }
     
 }
